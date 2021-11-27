@@ -574,6 +574,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite32/StaticBody2D"]
 shape = SubResource( 1 )
+one_way_collision = true
 __meta__ = {
 "_edit_group_": true
 }
@@ -718,6 +719,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite40/StaticBody2D"]
 shape = SubResource( 1 )
+one_way_collision = true
 __meta__ = {
 "_edit_group_": true
 }
@@ -826,6 +828,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite46/StaticBody2D"]
 shape = SubResource( 1 )
+one_way_collision = true
 __meta__ = {
 "_edit_group_": true
 }
@@ -844,6 +847,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite47/StaticBody2D"]
 shape = SubResource( 1 )
+one_way_collision = true
 __meta__ = {
 "_edit_group_": true
 }
@@ -952,6 +956,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite53/StaticBody2D"]
 shape = SubResource( 1 )
+one_way_collision = true
 __meta__ = {
 "_edit_group_": true
 }
@@ -1060,6 +1065,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite59/StaticBody2D"]
 shape = SubResource( 1 )
+one_way_collision = true
 __meta__ = {
 "_edit_group_": true
 }

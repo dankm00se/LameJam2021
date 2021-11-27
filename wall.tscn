@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://wall.gd" type="Script" id=2]
+
+[node name="TileMap" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+format = 1
+tile_data = PoolIntArray( -3211265, 0, 0, -3080193, 0, 0, -2949121, 0, 0, -2818049, 0, 0, -2686977, 0, 0, -2555905, 0, 0, -2424833, 0, 0, -2293761, 0, 0, -2162689, 0, 0, -2031617, 0, 0, -1900545, 0, 0, -1769473, 0, 0, -1638401, 0, 0, -1507329, 0, 0, -1376257, 0, 0, -1245185, 0, 0, -1114113, 0, 0, -983041, 0, 0, -851969, 0, 0, -720897, 0, 0, -589825, 0, 0, -458753, 0, 0, -327681, 0, 0, -196609, 0, 0, -65537, 0, 0 )
+script = ExtResource( 2 )

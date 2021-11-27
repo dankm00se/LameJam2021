@@ -97,12 +97,6 @@ script = ExtResource( 5 )
 position = Vector2( 0, 3 )
 shape = SubResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 0, -75 )
-current = true
-zoom = Vector2( 0.3, 0.5 )
-smoothing_enabled = true
-
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 3 )
 hframes = 9

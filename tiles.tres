@@ -668,11 +668,11 @@ extents = Vector2( 8, 8 )
 31/shape_offset = Vector2( 8, 8 )
 31/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8 )
 31/shape = SubResource( 1 )
-31/shape_one_way = false
+31/shape_one_way = true
 31/shape_one_way_margin = 1.0
 31/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
@@ -836,11 +836,11 @@ extents = Vector2( 8, 8 )
 39/shape_offset = Vector2( 8, 8 )
 39/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8 )
 39/shape = SubResource( 1 )
-39/shape_one_way = false
+39/shape_one_way = true
 39/shape_one_way_margin = 1.0
 39/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
@@ -962,11 +962,11 @@ extents = Vector2( 8, 8 )
 45/shape_offset = Vector2( 8, 8 )
 45/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8 )
 45/shape = SubResource( 1 )
-45/shape_one_way = false
+45/shape_one_way = true
 45/shape_one_way_margin = 1.0
 45/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
@@ -983,11 +983,11 @@ extents = Vector2( 8, 8 )
 46/shape_offset = Vector2( 8, 8 )
 46/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8 )
 46/shape = SubResource( 1 )
-46/shape_one_way = false
+46/shape_one_way = true
 46/shape_one_way_margin = 1.0
 46/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
@@ -1109,11 +1109,11 @@ extents = Vector2( 8, 8 )
 52/shape_offset = Vector2( 8, 8 )
 52/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8 )
 52/shape = SubResource( 1 )
-52/shape_one_way = false
+52/shape_one_way = true
 52/shape_one_way_margin = 1.0
 52/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
@@ -1235,11 +1235,11 @@ extents = Vector2( 8, 8 )
 58/shape_offset = Vector2( 8, 8 )
 58/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8 )
 58/shape = SubResource( 1 )
-58/shape_one_way = false
+58/shape_one_way = true
 58/shape_one_way_margin = 1.0
 58/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
