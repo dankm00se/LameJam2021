@@ -1,34 +1,64 @@
-extends Area2D
+extends KinematicBody2D
 
-export var speed = 400
-var screen_size
+const UP = Vector2(0, -1)
+const GRAVITY = 20
+const MAXFALLSPEED = 200
+const MAXSPEED = 80
+const ACCEL = 10
+const JUMPFORCE = 300
 
 
 
-# Called when the node enters the scene tree for the first time.
+var motion = Vector2()
+var facing_right = true
+
+
 func _ready():
-	screen_size = get_viewport_rect().size # Replace with function body.
+	pass
+
+#TODO: Handle wall running for character.
+#TODO: Get better character
+#TODO: Replace Background
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var velocity = Vector2()
+func _physics_process(delta):
 	
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("ui_up"):
-		velocity.y -= 1
-	if Input.is_action_pressed("ui_down"):
-		velocity.y += 1
+	motion.y += GRAVITY
+	if motion.y > MAXFALLSPEED:
+		motion.y = MAXFALLSPEED
 	
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		$AnimatedSprite.play()
+	if facing_right == true:
+		$Sprite.scale.x = 1
 	else:
-		$AnimatedSprite.stop()
+		$Sprite.scale.x = -1
+	
+	
+	motion.x = clamp(motion.x, -MAXSPEED, MAXSPEED)
+	
+	if Input.is_action_pressed("right"):
+		motion.x += ACCEL
+		facing_right = true
+		$AnimationPlayer.play("run")
 		
-	position += velocity * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+	elif Input.is_action_pressed("left"):
+		motion.x += -ACCEL
+		facing_right = false
+		$AnimationPlayer.play("run")
+	else:
+		motion.x = lerp(motion.x, 0, 0.2)
+		$AnimationPlayer.play("idle")
+	
+	if is_on_floor():
+		if Input.is_action_pressed("jump"):
+			motion.y = -JUMPFORCE
+	
+	if !is_on_floor():
+		if motion.y < 0:
+			$AnimationPlayer.play("jump")
+		elif motion.y > 0:
+			$AnimationPlayer.play("fall")
+	
+	motion = move_and_slide(motion, UP)
+	

@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://InitialScreen.gd" type="Script" id=1]
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 13.0
+margin_top = 78.0
+margin_right = 13.0
+margin_bottom = -186.0
+grow_horizontal = 2
+rect_scale = Vector2( 2.5, 3 )
+size_flags_horizontal = 4
+text = "CAPTURE THE BLOB IF YOU CAN.
+CAN YOU GET THE BLOB? IT'S REALLY FAST.
+YOU WILL PROBABLY NEVER GET PAST THE FIRST STAGE
+ HAHAHAHA LOSER!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.5
+margin_top = -10.0
+margin_right = 55.5
+margin_bottom = 10.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "I'LL SHOW YOU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

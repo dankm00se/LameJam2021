@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="wall-left" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource( 2 )
+position = Vector2( 30, 100 )
+scale = Vector2( 3, 50 )
+shape = SubResource( 1 )

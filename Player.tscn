@@ -1,35 +1,116 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://dodge_assets/art/playerGrey_up1.png" type="Texture" id=1]
-[ext_resource path="res://dodge_assets/art/playerGrey_up2.png" type="Texture" id=2]
-[ext_resource path="res://dodge_assets/art/playerGrey_walk2.png" type="Texture" id=3]
-[ext_resource path="res://dodge_assets/art/playerGrey_walk1.png" type="Texture" id=4]
 [ext_resource path="res://Player.gd" type="Script" id=5]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-} ]
-
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 27.0
-height = 16.0
+radius = 9.0
+height = 10.0
 
-[node name="Player" type="Area2D"]
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/viking2.png-d51891c0c49ca7c746b0b93b1bdd355a.stex"
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "fall"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 19, 20, 21, 22 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 6 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "jump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 18, 19 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "run"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11, 12, 13, 14 ]
+}
+
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 5 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 1 )
-animation = "up"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
 shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -75 )
+current = true
+zoom = Vector2( 0.3, 0.5 )
+smoothing_enabled = true
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 3 )
+hframes = 9
+vframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/fall = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/jump = SubResource( 7 )
+anims/run = SubResource( 8 )
