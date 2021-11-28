@@ -13,6 +13,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.y += 0.2
-	if position.y > 700:
+	position.y += Global.screenSpeed
+	if position.y > 740:
 		queue_free()

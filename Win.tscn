@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Win.gd" type="Script" id=1]
+[ext_resource path="res://sounds/Trumpet_Win.wav" type="AudioStream" id=2]
+[ext_resource path="res://Global.tscn" type="PackedScene" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -9,6 +11,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Global" parent="." instance=ExtResource( 3 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -33,10 +37,14 @@ rect_scale = Vector2( 3, 4 )
 size_flags_horizontal = 4
 text = "You Win!
 
-Press Space to try again
+Click to play again
 Press Esc to exit"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true

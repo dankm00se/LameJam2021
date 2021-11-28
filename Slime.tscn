@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Slime.gd" type="Script" id=1]
 [ext_resource path="res://Slime_Medium_Green.png" type="Texture" id=2]
+[ext_resource path="res://pixel_cloud_avr/cloud_17.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.0
@@ -56,6 +57,23 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.614907, 1 )
+colors = PoolColorArray( 0.239216, 0.784314, 0.235294, 1, 0.0930703, 0.535867, 0.26087, 1, 0.0823529, 0.517647, 0.262745, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+trail_color_modifier = SubResource( 7 )
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 32.56
+linear_accel_random = 0.97
+color = Color( 0.113725, 0.509804, 0.152941, 1 )
+
 [node name="Slime" type="Area2D"]
 scale = Vector2( 3, 3 )
 script = ExtResource( 1 )
@@ -63,8 +81,14 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
+[node name="Cloud17" type="Sprite" parent="."]
+position = Vector2( 0.333333, 6 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 3 )
+
 [node name="Sprite" type="Sprite" parent="."]
-rotation = -1.5708
+rotation = 3.14159
 scale = Vector2( 1, -1 )
 texture = ExtResource( 2 )
 hframes = 4
@@ -74,5 +98,12 @@ vframes = 4
 anims/RESET = SubResource( 2 )
 anims/Up = SubResource( 3 )
 anims/idle = SubResource( 4 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 3.33333, 3.66667 )
+rotation = -0.0174533
+amount = 2
+explosiveness = 1.0
+process_material = SubResource( 5 )
 
 [connection signal="body_entered" from="." to="." method="_on_Slime_body_entered"]

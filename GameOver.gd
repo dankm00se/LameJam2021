@@ -15,5 +15,5 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("esc"):
 		get_tree().quit()
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("left_click"):
 		get_tree().change_scene("res://Main.tscn")

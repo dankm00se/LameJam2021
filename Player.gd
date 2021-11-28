@@ -10,9 +10,11 @@ const JUMPFORCE = 400
 export var up = Vector2(0, -1)
 
 var motion = Vector2()
+var target = Vector2()
 var facing_right = true
 var can_double_jump = true
 var already_jumped = false
+var grappling = false
 
 
 func _ready():
@@ -22,11 +24,14 @@ func _ready():
 #TODO: Get better character
 #TODO: Replace Background
 
-
-
+func isMoving():
+	if motion.x > 0 || motion.x < 0:
+		return true
+	else:
+		return false
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	
 	
 	motion.y += GRAVITY
 	if motion.y > MAXFALLSPEED:
@@ -70,11 +75,18 @@ func _physics_process(delta):
 	
 	
 	if !is_on_floor():
+		#if grappling == true:
+			#$AnimationPlayer.play("Grapple")
 		if motion.y < 0:
 			$AnimationPlayer.play("jump")
 
-		elif motion.y > 0:
+		if motion.y > 0:
 			$AnimationPlayer.play("fall")
+			
+	if Input.is_action_just_pressed("left_click"):
+		target = get_global_mouse_position()
+		grappling = true
+	
 	
 	
 	motion = move_and_slide(motion, up)

@@ -1,22 +1,30 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://spawn-plat.gd" type="Script" id=2]
 [ext_resource path="res://Main.gd" type="Script" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://Ground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://paralax.tscn" type="PackedScene" id=4]
+[ext_resource path="res://RookOne.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tiles.tres" type="TileSet" id=6]
 [ext_resource path="res://Slime.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Global.tscn" type="PackedScene" id=8]
+[ext_resource path="res://RookTwo.tscn" type="PackedScene" id=9]
+[ext_resource path="res://RookSix.tscn" type="PackedScene" id=10]
+[ext_resource path="res://RookThree.tscn" type="PackedScene" id=11]
+[ext_resource path="res://RookFour.tscn" type="PackedScene" id=12]
+[ext_resource path="res://RookFive.tscn" type="PackedScene" id=13]
+[ext_resource path="res://music/bgMusic.mp3" type="AudioStream" id=14]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8.5, 400 )
 
-[sub_resource type="CanvasItemMaterial" id=1]
-
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="Global" parent="." instance=ExtResource( 8 )]
+
 [node name="PlayerCam" type="Camera2D" parent="."]
+z_index = -2
 offset = Vector2( 550, 450 )
 current = true
 zoom = Vector2( 0.4, 0.7 )
@@ -25,8 +33,35 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="modulate_me_for_colors" parent="PlayerCam" instance=ExtResource( 4 )]
+position = Vector2( 563, 337 )
+scale = Vector2( 2, 4 )
+
+[node name="RookOne" parent="PlayerCam" instance=ExtResource( 5 )]
+position = Vector2( 467, -40 )
+scale = Vector2( 1, 2 )
+
+[node name="RookOne2" parent="PlayerCam" instance=ExtResource( 9 )]
+position = Vector2( 467, -740 )
+scale = Vector2( 1, 2 )
+
+[node name="RookOne4" parent="PlayerCam" instance=ExtResource( 11 )]
+position = Vector2( 467, -1440 )
+scale = Vector2( 1, 2 )
+
+[node name="RookOne3" parent="PlayerCam" instance=ExtResource( 12 )]
+position = Vector2( 467, -2140 )
+scale = Vector2( 1, 2 )
+
+[node name="RookOne5" parent="PlayerCam" instance=ExtResource( 13 )]
+position = Vector2( 467, -2840 )
+scale = Vector2( 1, 2 )
+
+[node name="RookOne6" parent="PlayerCam" instance=ExtResource( 10 )]
+position = Vector2( 467, -3540 )
+scale = Vector2( 1, 2 )
+
 [node name="Timer" type="Timer" parent="PlayerCam"]
-wait_time = 2.0
 autostart = true
 
 [node name="right-wall" type="Area2D" parent="PlayerCam"]
@@ -43,25 +78,15 @@ position = Vector2( 757, 334 )
 shape = SubResource( 2 )
 
 [node name="right_wallTimer" type="Timer" parent="PlayerCam"]
+wait_time = 0.5
 autostart = true
 
-[node name="Godot Sprite" type="Sprite" parent="PlayerCam"]
-modulate = Color( 1, 0.372549, 0.666667, 1 )
-material = SubResource( 1 )
-position = Vector2( 1276, 204 )
-scale = Vector2( 19.1875, 13.3906 )
-texture = ExtResource( 4 )
-offset = Vector2( -38.6189, 7.84132 )
-
-[node name="Godot Sprite2" type="Sprite" parent="PlayerCam"]
-modulate = Color( 0.490196, 0.545098, 0.784314, 1 )
-material = SubResource( 1 )
-position = Vector2( 1110, 110 )
-scale = Vector2( 15.0491, 9.8621 )
-texture = ExtResource( 4 )
-offset = Vector2( -38.6189, 7.84132 )
+[node name="Pipe_timer" type="Timer" parent="PlayerCam"]
+wait_time = 20.0
+autostart = true
 
 [node name="Slime" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0, -1000 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -251, 9 )
@@ -69,8 +94,6 @@ tile_set = ExtResource( 6 )
 cell_size = Vector2( 8, 8 )
 format = 1
 tile_data = PoolIntArray( -1572767, 45, 0, -65447, 45, 0, 116, 45, 0, 262243, 45, 0, 589912, 45, 0, 786545, 45, 0, 1048675, 45, 0, 1441871, 45, 0, 1441873, 45, 0, 1966157, 46, 0, 1966159, 45, 0, 2097258, 45, 0, 2097260, 45, 0, 2097271, 45, 0, 2097273, 44, 0, 2424920, 45, 0, 2424922, 45, 0, 2949219, 45, 0, 2949221, 45, 0, 3342419, 45, 0, 3342421, 45, 0, 3801180, 45, 0, 3801182, 45, 0, 3997802, 45, 0, 3997804, 45, 0, 4194423, 45, 0, 4194425, 44, 0, 4456558, 45, 0, 4456560, 45, 0, 4784203, 40, 0, 4784205, 40, 0, 4784207, 40, 0, 4784209, 40, 0, 4784211, 40, 0, 4784213, 40, 0, 4784215, 40, 0, 4784217, 40, 0, 4784219, 40, 0, 4784221, 40, 0, 4784223, 40, 0, 4784225, 40, 0, 4784227, 40, 0, 4784229, 40, 0, 4784231, 40, 0, 4784233, 40, 0, 4784235, 40, 0, 4784237, 40, 0, 4784239, 40, 0, 4784241, 40, 0, 4784243, 40, 0, 4784245, 40, 0, 4784247, 40, 0, 4784249, 40, 0, 4784251, 40, 0 )
-
-[node name="Ground" parent="." instance=ExtResource( 5 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 564, 567 )
@@ -88,14 +111,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 714, 488 )
-
 [node name="IncreaseSpeed" type="Timer" parent="."]
-wait_time = 25.0
+wait_time = 10.0
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -10.0
+autoplay = true
 
 [connection signal="timeout" from="PlayerCam/Timer" to="PlayerCam" method="_on_Timer_timeout"]
 [connection signal="timeout" from="PlayerCam/right_wallTimer" to="PlayerCam" method="_on_right_wallTimer_timeout"]
+[connection signal="timeout" from="PlayerCam/Pipe_timer" to="PlayerCam" method="_on_Pipe_timer_timeout"]
 [connection signal="body_entered" from="Slime" to="." method="_on_Slime_body_entered"]
 [connection signal="timeout" from="IncreaseSpeed" to="." method="_on_IncreaseSpeed_timeout"]

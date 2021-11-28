@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=5]
 
@@ -8,6 +8,22 @@ height = 10.0
 
 [sub_resource type="StreamTexture" id=3]
 load_path = "res://.import/viking2.png-d51891c0c49ca7c746b0b93b1bdd355a.stex"
+
+[sub_resource type="Animation" id=9]
+resource_name = "Grapple"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 38, 37, 36, 35 ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -103,6 +119,7 @@ hframes = 9
 vframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Grapple = SubResource( 9 )
 anims/RESET = SubResource( 4 )
 anims/fall = SubResource( 5 )
 anims/idle = SubResource( 6 )

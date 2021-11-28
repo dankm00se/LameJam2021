@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://BACKGROUND.tres" type="TileSet" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 23.3601, 7.36778 )
+
+[node name="TileMap" type="TileMap"]
+position = Vector2( -24, 0 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 8, 6, 1, 8, 5, 2, 8, 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 24.3952, 8.28922 )
+shape = SubResource( 1 )
+one_way_collision = true

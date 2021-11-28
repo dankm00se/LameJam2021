@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Platform.gd" type="Script" id=2]
+[ext_resource path="res://sounds/walk.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1.50003, 16 )
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource( 1 )
@@ -9,3 +13,15 @@ cell_size = Vector2( 8, 8 )
 format = 1
 tile_data = PoolIntArray( -2, 31, 0, -65536, 31, 0 )
 script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -8 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D"]
+stream = ExtResource( 3 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

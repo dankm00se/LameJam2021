@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://parallaxbackground/parallax-mountain-foreground-trees.png" type="Texture" id=1]
+[ext_resource path="res://parallaxbackground/parallax-mountain-mountains.png" type="Texture" id=2]
+[ext_resource path="res://parallaxbackground/parallax-mountain-montain-far.png" type="Texture" id=3]
+[ext_resource path="res://parallaxbackground/parallax-mountain-bg.png" type="Texture" id=4]
+[ext_resource path="res://parallax.gd" type="Script" id=5]
+
+[node name="modulate_me_for_colors" type="Sprite"]
+self_modulate = Color( 0.286275, 0.0431373, 0.466667, 1 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="backmount" type="Sprite" parent="."]
+self_modulate = Color( 0.537255, 0.231373, 0.658824, 1 )
+texture = ExtResource( 3 )
+
+[node name="backpeaks" type="Sprite" parent="backmount"]
+texture = ExtResource( 2 )
+
+[node name="backtrees" type="Sprite" parent="backmount/backpeaks"]
+texture = ExtResource( 1 )
