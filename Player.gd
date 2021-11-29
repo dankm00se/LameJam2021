@@ -72,7 +72,10 @@ func _physics_process(delta):
 			can_double_jump = false
 			already_jumped = true
 			motion.y = -JUMPFORCE
-	
+	#if Input.is_action_pressed("ui_down"):
+	#	position.y -= 10
+		
+		
 	
 	if !is_on_floor():
 		#if grappling == true:

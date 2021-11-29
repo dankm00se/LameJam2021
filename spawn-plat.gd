@@ -95,4 +95,7 @@ func _on_Pipe_timer_timeout():
 func _on_Score_timer_timeout():
 	$Score_timer.start (1)
 	time_alive += 10
-	$Label.text = "Score: " + time_alive as String
+	if time_alive < 705:
+		$Label.text = "Distance to blob: " + (510 - time_alive) as String
+	else:
+		$Label.text = "Record your score! " + (time_alive * 20) as String + "points"
