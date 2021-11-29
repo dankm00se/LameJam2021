@@ -31,7 +31,7 @@ rect_scale = Vector2( 3, 4 )
 size_flags_horizontal = 4
 text = "Game Over
 
-Click to try again
+Click or press Enter to try again
 Press Esc to exit"
 align = 1
 valign = 1

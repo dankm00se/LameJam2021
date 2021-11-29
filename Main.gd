@@ -26,7 +26,6 @@ func _process(delta):
 		get_tree().change_scene("res://GameOver.tscn")
 
 
-
 func _on_Slime_body_entered(body):
 	if body == $Player:
 		get_tree().change_scene("res://Win.tscn")

@@ -8,7 +8,7 @@ var PlatformI = preload("res://DARKplatform_I.tscn")
 var PlatformL = preload("res://DARKplatform_L.tscn")
 var PlatformT = preload("res://DARKplatform_T.tscn")
 #var PlatformSmall = preload("res://DARKplatform_smallblock2.tscn")
-
+export var time_alive = 0
 
 
 #var platforms = [Platform, PlatformB, PlatformI, PlatformL, PlatformT]
@@ -27,30 +27,31 @@ var currentPlatforms = []
 
 
 # Called when the node enters the scene tree for the first time.
-func spawn_right_wall():
-	var Wall_node = Wall.instance()
-	Wall_node.position.x = 740
-	Wall_node.position.y = 590
+#func spawn_right_wall():
+#	var Wall_node = Wall.instance()
+#	Wall_node.position.x = 740
+#	Wall_node.position.y = 590
 	
 	#if Global.level == 2:
 	#	Wall_node.set_modulate(Color(23, 244, 103))
-	add_child(Wall_node)
+#	add_child(Wall_node)
 	#print("spawned wall")
 
-func spawn_left_wall():
-	var Wall_node = Wall.instance()
-	Wall_node.position.x = 358
-	Wall_node.position.y = 590
-	add_child(Wall_node)
+#func spawn_left_wall():
+#	var Wall_node = Wall.instance()
+#	Wall_node.position.x = 358
+#	Wall_node.position.y = 590
+#	add_child(Wall_node)
 	#print("spawned wall")
 
 
 
 func _ready():
 	$Timer.start(2)
-	spawn_right_wall()
-	spawn_left_wall()
+#	spawn_right_wall()
+#	spawn_left_wall()
 	$right_wallTimer.start(1)
+	$Score_timer.start(1)
 	
 
 
@@ -78,9 +79,10 @@ func _on_Timer_timeout():
 
 
 func _on_right_wallTimer_timeout():
-	spawn_right_wall()
-	spawn_left_wall()
+#	spawn_right_wall()
+#	spawn_left_wall()
 	$right_wallTimer.start(1.2 - Global.screenSpeed)
+	
 
 
 func _on_Pipe_timer_timeout():
@@ -88,3 +90,9 @@ func _on_Pipe_timer_timeout():
 	var Pipe_node = Platform_pipe.instance()
 	add_child(Pipe_node)
 	$Pipe_timer.start(rand_range(5, 10))
+
+
+func _on_Score_timer_timeout():
+	$Score_timer.start (1)
+	time_alive += 10
+	$Label.text = "Score: " + time_alive as String
